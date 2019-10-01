@@ -1,0 +1,19 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cyber-Star-1/forkify.git"
+  },
+  "author": "Adeeb Ahmad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cyber-Star-1/forkify/issues"
+  },
+  "homepage": "https://github.com/Cyber-Star-1/forkify#readme"
+}
