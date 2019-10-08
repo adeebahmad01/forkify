@@ -84,3 +84,20 @@ const controlRecipe = async ()=>{
   }
 }
 ['hashchange','load'].forEach(e => window.addEventListener(e, controlRecipe))
+
+//HANDLING RECIPE BUTTON CLICK
+elements.recipe.addEventListener('click', e=>{
+  if(e.target.matches('.btn-dec, .btn-dec *')){
+    //Decrease BTN Clicked
+    if(state.recipe.servings > 1){
+      state.recipe.undateServings('dec')
+      recipeView.updateServingIng(state.recipe);
+    }
+  }
+  else if(e.target.matches('.btn-inc, .btn-inc *')){
+    //Increase BTN Clicked
+    state.recipe.undateServings('dec')
+    recipeView.updateServingIng(state.recipe);
+
+  }
+})
