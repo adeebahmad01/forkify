@@ -16,6 +16,7 @@ export const renderLoader = parent =>{
       <svg>
         <use href="img/icons.svg#icon-cw"></use>
       </svg>
+      
     </div>
   `;
   parent.insertAdjacentHTML('afterbegin' , loader)

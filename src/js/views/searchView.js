@@ -18,13 +18,13 @@ const limitRecipeTitle = (title, limit=17)=>{
     },0);
     //return Result
 
-return `${newTitle.join(' ')} ...`
+    return `${newTitle.join(' ')} ...`
   } 
   return title
 }
 const renderRecipe = recipe => {
   let makrup
-  if(recipe != undefined ){
+  
     makrup = `
     <li title="${recipe.title}">
       <a class="results__link" href="#${recipe.recipe_id}">
@@ -36,11 +36,7 @@ const renderRecipe = recipe => {
               <p class="results__author">${recipe.publisher}</p>
           </div>
       </a>
-    </li>`
-  }
-  else{
-    makrup = `<h1 style="color:red; font-size: 5rem; font-family: inherit">Limits Of API requests per day Has Reached</h1>`
-  }
+    </li>`;
   elements.searchResList.insertAdjacentHTML('beforeend', makrup)
 };
 const createButton =(pages,type)=> `
@@ -80,4 +76,11 @@ export const renderResult = (recipes,page=1, resPerPage =10) => {
   recipes.slice(start,end).forEach(renderRecipe);
   //Render Button
   renderButton(page,recipes.length, resPerPage)
+}
+export const selectedElement = id =>{
+  const resultArr = Array.from(document.querySelectorAll('.results__link'));
+  resultArr.forEach(el=>{
+    el.classList.remove('results__link--active');
+  })
+  document.querySelector(`a[href*="${id}"]`).classList.add('results__link--active');
 }

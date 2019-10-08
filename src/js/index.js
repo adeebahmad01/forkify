@@ -54,14 +54,18 @@ elements.searchResPages.addEventListener('click', e=>{
 
 const controlRecipe = async ()=>{
   const id = window.location.hash.replace('#', '');
-  console.log(id)
   if(id){
     //Prepare UI FOR Changes
     recipeView.clearRecipe()
     renderLoader(elements.recipe)
+//  Highlight Selected
+    if(state.search){
+      searchView.selectedElement(id)
+    }
+
     //Create new recipe Object
-    //state.recipe = new Recipe(id)
     state.recipe = new Recipe(id)
+    window.r = state.recipe
     try{
       //Get recipe Data
       await state.recipe.getRecipe();
